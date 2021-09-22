@@ -33,7 +33,7 @@ void main() {
         child: box,
       );
 
-      await tester.pumpWidget(makeTestableWidget(object));
+      await tester.pumpWidget(TestableWidget(object));
 
       final renderData = renderManager.getRenderData('box');
 
@@ -62,7 +62,7 @@ void main() {
       );
 
       await tester.pumpWidget(
-        makeTestableWidget(Column(children: [firstObject, secondObject])),
+        TestableWidget(Column(children: [firstObject, secondObject])),
       );
 
       final diff = renderManager.getDiffById(firstId, secondId);

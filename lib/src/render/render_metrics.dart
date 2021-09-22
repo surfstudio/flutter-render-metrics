@@ -33,6 +33,12 @@ typedef UnMountCallback<T> = void Function(T id);
 /// When deleted from the tree, didUnmountRenderObject is triggered.
 /// It calls onUnMount if passed and the removeRenderObject method
 class RenderMetricsObject<T> extends SingleChildRenderObjectWidget {
+  final T id;
+  final RenderManager manager;
+  final MountCallback<T>? onMount;
+  final MountCallback<T>? onUpdate;
+  final UnMountCallback<T>? onUnMount;
+
   const RenderMetricsObject({
     required this.id,
     required this.manager,
@@ -42,12 +48,6 @@ class RenderMetricsObject<T> extends SingleChildRenderObjectWidget {
     Key? key,
     Widget? child,
   }) : super(key: key, child: child);
-
-  final T id;
-  final RenderManager manager;
-  final MountCallback<T>? onMount;
-  final MountCallback<T>? onUpdate;
-  final UnMountCallback<T>? onUnMount;
 
   @override
   RenderMetricsBox createRenderObject(BuildContext context) {
@@ -83,6 +83,7 @@ class RenderMetricsBox extends RenderProxyBox {
     RenderBox? child,
   }) : super(child);
 
+  // ignore: member-ordering-extended
   RenderData get data {
     final size = this.size;
     final width = size.width;
