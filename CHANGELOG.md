@@ -1,5 +1,9 @@
 # Changelog
 
+## 2.0.2 - 2021-09-22
+
+* Apply new lint rules.
+
 ## 2.0.1 - 2021-05-30
 
 * Stable release
