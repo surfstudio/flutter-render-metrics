@@ -44,14 +44,14 @@ class RenderParametersManager<T> extends RenderManager<T> {
     _renderObjects.remove(id);
   }
 
-  /// Collection with mounted RenderMetricsBox
-  RenderMetricsBox? operator [](T id) {
+  /// Get an instance of [RenderObject] by [id]
+  RenderMetricsBox? getRenderObject(T id) {
     return _renderObjects[id];
   }
 
   /// Get instance of [RenderData] from [RenderObject] by [id]
   RenderData? getRenderData(T id) {
-    return _renderObjects[id]?.data;
+    return getRenderObject(id)?.data;
   }
 
   /// Get the difference between

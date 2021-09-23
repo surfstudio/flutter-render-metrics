@@ -108,7 +108,7 @@ void main() {
 
       final diff = renderManager.getDiffById(firstId, secondId);
 
-      assert(renderManager[firstId] is RenderMetricsBox);
+      assert(renderManager.renderObjects[firstId] is RenderMetricsBox);
 
       expect(diff?.height, equals(200));
       expect(diff?.width, equals(400));
