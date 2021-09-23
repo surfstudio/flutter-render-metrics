@@ -35,12 +35,12 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  final String title;
+
   const MyHomePage({
     required this.title,
     Key? key,
   }) : super(key: key);
-
-  final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -66,28 +66,6 @@ class _MyHomePageState extends State<MyHomePage> {
     _scrollController.addListener(_scrollListener);
     WidgetsBinding.instance?.addPostFrameCallback((_) {
       setState(() {});
-    });
-  }
-
-  void _scrollListener() {
-    setState(() {
-      _text0 = _getRenderDataText(_text0Id);
-    });
-
-    final diff = renderManager.getDiffById(
-      _containerPositionedId,
-      _textBlockId,
-    );
-
-    if (diff != null) {
-      _changeBlockUi((diff.diffBottomToTop) > 0);
-    }
-  }
-
-  void _changeBlockUi(bool isChange) {
-    if (_isOpacity == isChange) return;
-    setState(() {
-      _isOpacity = isChange;
     });
   }
 
@@ -158,6 +136,28 @@ class _MyHomePageState extends State<MyHomePage> {
         ],
       ),
     );
+  }
+
+  void _scrollListener() {
+    setState(() {
+      _text0 = _getRenderDataText(_text0Id);
+    });
+
+    final diff = renderManager.getDiffById(
+      _containerPositionedId,
+      _textBlockId,
+    );
+
+    if (diff != null) {
+      _changeBlockUi((diff.diffBottomToTop) > 0);
+    }
+  }
+
+  void _changeBlockUi(bool isChange) {
+    if (_isOpacity == isChange) return;
+    setState(() {
+      _isOpacity = isChange;
+    });
   }
 
   Widget _buildBox() {
