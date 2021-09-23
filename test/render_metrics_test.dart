@@ -39,6 +39,47 @@ void main() {
 
       expect(renderData?.height, 400);
       expect(renderData?.width, 800);
+
+      expect(renderData?.topLeft.x, 0);
+      expect(renderData?.topLeft.y, 0);
+
+      expect(renderData?.topRight.x, 800);
+      expect(renderData?.topRight.y, 0);
+
+      expect(renderData?.bottomLeft.x, 0);
+      expect(renderData?.bottomLeft.y, 400);
+
+      expect(renderData?.bottomRight.x, 800);
+      expect(renderData?.bottomRight.y, 400);
+
+      expect(renderData?.center.x, 400);
+      expect(renderData?.center.y, 200);
+
+      expect(renderData?.topCenter.x, 400);
+      expect(renderData?.topCenter.y, 0);
+
+      expect(renderData?.bottomCenter.x, 400);
+      expect(renderData?.bottomCenter.y, 400);
+
+      expect(renderData?.centerLeft.x, 0);
+      expect(renderData?.centerLeft.y, 200);
+
+      expect(renderData?.centerRight.x, 800);
+      expect(renderData?.centerRight.y, 200);
+
+      expect(
+        renderData?.toString(),
+        'RenderData(\n'
+        '    yTop = 0.0;\n'
+        '    yBottom = 400.0;\n'
+        '    yCenter = 200.0;\n'
+        '    xLeft = 0.0;\n'
+        '    xRight = 800.0;\n'
+        '    xCenter = 400.0;\n'
+        '    width = 800.0;\n'
+        '    height = 400.0;\n'
+        ')',
+      );
     });
 
     testWidgets('calculates diff', (tester) async {
@@ -77,6 +118,51 @@ void main() {
 
       expect(diffUsingOperatior.height, equals(200));
       expect(diffUsingOperatior.width, equals(400));
+
+      expect(diffUsingOperatior.topLeft.x, equals(-200.0));
+      expect(diffUsingOperatior.topLeft.y, equals(-400.0));
+
+      expect(diffUsingOperatior.topRight.x, equals(200.0));
+      expect(diffUsingOperatior.topRight.y, equals(-400.0));
+
+      expect(diffUsingOperatior.bottomLeft.x, equals(-200.0));
+      expect(diffUsingOperatior.bottomLeft.y, equals(-200.0));
+
+      expect(diffUsingOperatior.bottomRight.x, equals(200.0));
+      expect(diffUsingOperatior.bottomRight.y, equals(-200.0));
+
+      expect(diffUsingOperatior.center.x, equals(0.0));
+      expect(diffUsingOperatior.center.y, equals(-300.0));
+
+      expect(diffUsingOperatior.topCenter.x, equals(0.0));
+      expect(diffUsingOperatior.topCenter.y, equals(-400.0));
+
+      expect(diffUsingOperatior.bottomCenter.x, equals(0.0));
+      expect(diffUsingOperatior.bottomCenter.y, equals(-200.0));
+
+      expect(diffUsingOperatior.centerLeft.x, equals(-200.0));
+      expect(diffUsingOperatior.centerLeft.y, equals(-300.0));
+
+      expect(diffUsingOperatior.centerRight.x, equals(200.0));
+      expect(diffUsingOperatior.centerRight.y, equals(-300.0));
+
+      expect(
+        diffUsingOperatior.toString(),
+        'ComparisonDiff(\n'
+        '    yTop = -400.0;\n'
+        '    yBottom = -200.0;\n'
+        '    yCenter = -300.0;\n'
+        '    xLeft = -200.0;\n'
+        '    xRight = 200.0;\n'
+        '    xCenter = 0.0;\n'
+        '    diffTopToBottom = -600.0;\n'
+        '    diffBottomToTop = 0.0;\n'
+        '    diffLeftToRight = -600.0;\n'
+        '    diffRightToLeft = 600.0;\n'
+        '    width = 400.0;\n'
+        '    height = 200.0;\n'
+        ')',
+      );
     });
   });
 }
