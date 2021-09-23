@@ -24,6 +24,8 @@ import 'package:render_metrics/src/render/render_metrics.dart';
 class RenderParametersManager<T> extends RenderManager<T> {
   final _renderObjects = <T, RenderMetricsBox>{};
 
+  Map<T, RenderMetricsBox> get renderObjects => _renderObjects;
+
   /// Add an instance of [RenderObject] by [id]
   @override
   void addRenderObject(T id, RenderObject renderObject) {
@@ -47,14 +49,9 @@ class RenderParametersManager<T> extends RenderManager<T> {
     return _renderObjects[id];
   }
 
-  /// Get an instance of [RenderObject] by [id]
-  RenderMetricsBox? getRenderObject(T id) {
-    return _renderObjects[id];
-  }
-
   /// Get instance of [RenderData] from [RenderObject] by [id]
   RenderData? getRenderData(T id) {
-    return getRenderObject(id)?.data;
+    return _renderObjects[id]?.data;
   }
 
   /// Get the difference between
