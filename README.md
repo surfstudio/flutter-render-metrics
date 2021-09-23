@@ -104,7 +104,7 @@ Add Render Metrics to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  render_metrics: version
+  render_metrics: ^2.0.2
 ```
 
 You can use both `stable` and `dev` versions of the package listed above in the badges bar.
