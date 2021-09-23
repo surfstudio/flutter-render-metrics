@@ -108,7 +108,7 @@ void main() {
 
       final diff = renderManager.getDiffById(firstId, secondId);
 
-      assert(renderManager.renderObjects[firstId] is RenderMetricsBox);
+      expect(renderManager.renderObjects[firstId] is RenderMetricsBox, isTrue);
 
       expect(diff?.height, equals(200));
       expect(diff?.width, equals(400));
@@ -164,6 +164,10 @@ void main() {
         '    width = 400.0;\n'
         '    height = 200.0;\n'
         ')',
+      );
+
+      await tester.pumpWidget(
+        TestableWidget(Column(children: [secondObject, firstObject])),
       );
     });
   });
