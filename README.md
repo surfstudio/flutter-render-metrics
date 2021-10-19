@@ -11,7 +11,7 @@ This package is part of the [SurfGear](https://github.com/surfstudio/SurfGear) t
 
 [![SurfGear](https://i.ibb.co/wpPb5N5/render-metrics-logo.png)](https://github.com/surfstudio/SurfGear)
 
-## About
+## Description
 
 This package helps retrieve the current positioning coordinates of any widget in a widgets tree in your Flutter application.
 
@@ -20,7 +20,7 @@ This package helps retrieve the current positioning coordinates of any widget in
 - Retrieve the full set of positioning coordinates of the desired widget at any time;
 - Calculate the difference in positioning between two widgets and use it the way you need.
 
-## Usage
+## Example
 
 ### Getting widget's coordinates
 
