@@ -93,4 +93,7 @@ jobs:
         run: flutter pub get
 
       - name: Run example app
-        run: dart example/lib/main.dart
+        run: |
+          cd example
+          flutter pub get
+          flutter run
