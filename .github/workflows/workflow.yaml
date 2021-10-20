@@ -58,67 +58,19 @@ jobs:
         with:
           githubToken: ${{ secrets.GITHUB_TOKEN }}
 
-  testing:
+  run_example_app:
     needs: analysis
     runs-on: ubuntu-latest
-
+    
     steps:
       - name: Checkout
         uses: actions/checkout@v2
-    
+
       - name: Install Flutter 
         uses: subosito/flutter-action@v1
-        with:
-          channel: "stable"
 
       - name: Install dependencies 
         run: flutter pub get
 
-      - name: Run tests 
-        run: flutter test
-  
-  build_android_example:
-    needs: analysis
-    runs-on: ubuntu-latest
-    
-    steps:
-      # Setup Java environment in order to build the Android app.
-      - uses: actions/checkout@v2
-      - uses: actions/setup-java@v1
-        with:
-          java-version: "12.x"
-
-      - name: Install Flutter
-        uses: subosito/flutter-action@v1
-        with:
-          channel: "stable"
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Build Android
-        run: |
-          cd example
-          flutter pub get
-          flutter build apk
-
-  build_ios_example:
-    needs: analysis
-    runs-on: macos-latest
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v2
-
-      - name: Install Flutter
-        uses: subosito/flutter-action@v1
-        with:
-          channel: "stable"
-
-      - name: Install dependencies
-        run: flutter pub get
-
-      - name: Build iOS
-        run: |
-          cd example
-          flutter pub get
-          flutter build ios --release --no-codesign
+      - name: Run example app
+        run: dart example/lib/main.dart
