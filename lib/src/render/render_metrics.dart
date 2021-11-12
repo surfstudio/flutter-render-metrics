@@ -17,21 +17,26 @@ import 'package:flutter/widgets.dart';
 import 'package:render_metrics/src/data/render_data.dart';
 import 'package:render_metrics/src/manager/render_manager.dart';
 
+/// Mount / create instance callback [RenderMetricsObject].
 typedef MountCallback<T> = void Function(T id, RenderMetricsBox box);
+
+///  Unmounted / uninstall instance callback [RenderMetricsObject].
 typedef UnMountCallback<T> = void Function(T id);
 
-/// [RenderObjectWidget] for getting widget metrics
-/// [id] - widget id
+/// [RenderObjectWidget] for getting widget metrics.
+/// [id] - widget id.
 /// [manager] - an instance of the RenderManager for getting and processing
-/// metrics
-/// [onMount] - mount / create instance callback [RenderMetricsObject]
-/// [onUnMount] - unmounted / uninstall instance callback [RenderMetricsObject]
+/// metrics.
+/// [onMount] - mount / create instance callback [RenderMetricsObject].
+/// [onUpdate] - called in the [updateRenderObject] method,
+/// update [RenderMetricsObject].
+/// [onUnMount] - unmounted / uninstall instance callback [RenderMetricsObject].
 ///
 /// When mounting a RenderMetricsObject, the createRenderObject method fires.
-/// It calls onMount if the manager addRenderObject method
-/// is also passed if it is passed.
+/// It calls onMount(if passed)
+/// and the manager method addRenderObject(if passed too).
 /// When deleted from the tree, didUnmountRenderObject is triggered.
-/// It calls onUnMount if passed and the removeRenderObject method
+/// It calls onUnMount(if passed) and the removeRenderObject method.
 class RenderMetricsObject<T> extends SingleChildRenderObjectWidget {
   final T id;
   final RenderManager manager;
@@ -76,8 +81,8 @@ class RenderMetricsObject<T> extends SingleChildRenderObjectWidget {
 }
 
 /// [RenderBox] for getting widget metrics
-/// extends RenderProxyBox which extends RenderObject
-/// [data] - getter for receiving data in the instance [RenderData]
+/// extends [RenderProxyBox] which extends [RenderObject].
+/// [data] - getter for receiving data in the instance [RenderData].
 class RenderMetricsBox extends RenderProxyBox {
   RenderData get data {
     final size = this.size;
