@@ -15,8 +15,6 @@
 import 'package:flutter/material.dart';
 import 'package:render_metrics/render_metrics.dart';
 
-// ignore_for_file: avoid-returning-widgets
-
 void main() => runApp(const MyApp());
 
 class MyApp extends StatelessWidget {
@@ -35,12 +33,12 @@ class MyApp extends StatelessWidget {
 }
 
 class MyHomePage extends StatefulWidget {
+  final String title;
+
   const MyHomePage({
     required this.title,
     Key? key,
   }) : super(key: key);
-
-  final String title;
 
   @override
   _MyHomePageState createState() => _MyHomePageState();
@@ -66,28 +64,6 @@ class _MyHomePageState extends State<MyHomePage> {
     _scrollController.addListener(_scrollListener);
     WidgetsBinding.instance?.addPostFrameCallback((_) {
       setState(() {});
-    });
-  }
-
-  void _scrollListener() {
-    setState(() {
-      _text0 = _getRenderDataText(_text0Id);
-    });
-
-    final diff = renderManager.getDiffById(
-      _containerPositionedId,
-      _textBlockId,
-    );
-
-    if (diff != null) {
-      _changeBlockUi((diff.diffBottomToTop) > 0);
-    }
-  }
-
-  void _changeBlockUi(bool isChange) {
-    if (_isOpacity == isChange) return;
-    setState(() {
-      _isOpacity = isChange;
     });
   }
 
@@ -129,19 +105,20 @@ class _MyHomePageState extends State<MyHomePage> {
                     RenderMetricsObject(
                       id: _text1Id,
                       manager: renderManager,
-                      child: _buildTextContainer(
-                        'Diff metrics between the current and the blue square:'
-                        '\n\n'
-                        // ignore: lines_longer_than_80_chars
-                        '${renderManager.getDiffById(_text1Id, _containerPositionedId) ?? ''}',
+                      child: _TextContainer(
+                        text:
+                            'Diff metrics between the current and the blue square:'
+                            '\n\n'
+                            // ignore: lines_longer_than_80_chars
+                            '${renderManager.getDiffById(_text1Id, _containerPositionedId) ?? ''}',
                       ),
                     ),
                     const SizedBox(height: 20),
                     RenderMetricsObject(
                       id: _text0Id,
                       manager: renderManager,
-                      child: _buildTextContainer(
-                        'Metrics:\n\n$_text0',
+                      child: _TextContainer(
+                        text: 'Metrics:\n\n$_text0',
                       ),
                     ),
                     const SizedBox(height: 1500),
@@ -153,39 +130,50 @@ class _MyHomePageState extends State<MyHomePage> {
           Positioned(
             top: 50,
             left: 10,
-            child: _buildBox(),
+            child: _Box(
+              renderManager: renderManager,
+              containerPositionedId: _containerPositionedId,
+              isOpacity: _isOpacity,
+            ),
           ),
         ],
       ),
     );
   }
 
-  Widget _buildBox() {
-    return RenderMetricsObject(
-      id: _containerPositionedId,
-      manager: renderManager,
-      child: AnimatedOpacity(
-        duration: const Duration(milliseconds: 250),
-        opacity: _isOpacity ? .5 : 1,
-        child: Container(
-          width: 300,
-          height: 210,
-          color: Colors.blue,
-          child: Padding(
-            padding: const EdgeInsets.all(10),
-            child: Text(
-              'Blue Container() widget metrics:'
-              '\n\n'
-              '${_getRenderDataText(_containerPositionedId)}',
-              style: const TextStyle(color: Colors.white),
-            ),
-          ),
-        ),
-      ),
+  void _scrollListener() {
+    setState(() {
+      _text0 = _getRenderDataText(_text0Id, renderManager);
+    });
+
+    final diff = renderManager.getDiffById(
+      _containerPositionedId,
+      _textBlockId,
     );
+
+    if (diff != null) {
+      _changeBlockUi((diff.diffBottomToTop) > 0);
+    }
   }
 
-  Widget _buildTextContainer(String text) {
+  void _changeBlockUi(bool isChange) {
+    if (_isOpacity == isChange) return;
+    setState(() {
+      _isOpacity = isChange;
+    });
+  }
+}
+
+class _TextContainer extends StatelessWidget {
+  final String text;
+
+  const _TextContainer({
+    required this.text,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
     return Container(
       color: Colors.black.withOpacity(.2),
       child: Padding(
@@ -196,10 +184,52 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
     );
   }
+}
 
-  String _getRenderDataText<T>(T id) {
-    final data = renderManager.getRenderData(id);
-    if (data == null) return '';
-    return data.toString();
+class _Box extends StatelessWidget {
+  final RenderParametersManager renderManager;
+  final String containerPositionedId;
+  final bool isOpacity;
+
+  const _Box({
+    required this.renderManager,
+    required this.containerPositionedId,
+    required this.isOpacity,
+    Key? key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+    return RenderMetricsObject<dynamic>(
+      id: containerPositionedId,
+      manager: renderManager,
+      child: AnimatedOpacity(
+        duration: const Duration(milliseconds: 250),
+        opacity: isOpacity ? .5 : 1,
+        child: Container(
+          width: 300,
+          height: 210,
+          color: Colors.blue,
+          child: Padding(
+            padding: const EdgeInsets.all(10),
+            child: Text(
+              'Blue Container() widget metrics:'
+              '\n\n'
+              '${_getRenderDataText(containerPositionedId, renderManager)}',
+              style: const TextStyle(color: Colors.white),
+            ),
+          ),
+        ),
+      ),
+    );
   }
+}
+
+String _getRenderDataText<T>(
+  T id,
+  RenderParametersManager renderManager,
+) {
+  final data = renderManager.getRenderData(id);
+  if (data == null) return '';
+  return data.toString();
 }
