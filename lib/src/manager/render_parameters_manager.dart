@@ -12,6 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/rendering.dart';
 import 'package:render_metrics/src/data/comparison_diff.dart';
 import 'package:render_metrics/src/data/render_data.dart';
@@ -23,6 +24,9 @@ import 'package:render_metrics/src/render/render_metrics.dart';
 /// and provides methods for working with it.
 class RenderParametersManager<T> extends RenderManager<T> {
   final _renderObjects = <T, RenderMetricsBox>{};
+
+  @visibleForTesting
+  Map<T, RenderMetricsBox> get renderObjects => _renderObjects;
 
   /// Add an instance of [RenderObject] by [id].
   @override
