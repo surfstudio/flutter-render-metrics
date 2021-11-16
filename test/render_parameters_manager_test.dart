@@ -43,7 +43,7 @@ void main() {
 
   test(
     'addRenderObject method should add an instance of [RenderObject] in '
-        'renderObjects',
+    'renderObjects',
     () {
       renderParametersManager.addRenderObject(id, renderObject);
 
@@ -55,7 +55,7 @@ void main() {
 
   test(
     'updateRenderObject method should update an instance of [RenderObject] '
-        'by [id] in renderObjects',
+    'by [id] in renderObjects',
     () {
       renderParametersManager.updateRenderObject(id, secondRenderObject);
 
@@ -70,7 +70,7 @@ void main() {
 
   test(
     'removeRenderObject method should delete an instance of [RenderObject] by '
-        '[id] in renderObjects',
+    '[id] in renderObjects',
     () {
       renderParametersManager
         ..addRenderObject(id, renderObject)
