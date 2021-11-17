@@ -1,7 +1,7 @@
 # Render Metrics
 
-[![Build Status](https://shields.io/github/workflow/status/surfstudio/SurfGear/build?logo=github&logoColor=white)](https://github.com/surfstudio/SurfGear/tree/main/packages/render_metrics)
-[![Coverage Status](https://img.shields.io/codecov/c/github/surfstudio/SurfGear?flag=render_metrics&logo=codecov&logoColor=white)](https://codecov.io/gh/surfstudio/SurfGear)
+[![Build Status](https://shields.io/github/workflow/status/surfstudio/flutter-render-metrics/build?logo=github&logoColor=white)](https://github.com/surfstudio/flutter-render-metrics)
+[![Coverage Status](https://img.shields.io/codecov/c/github/surfstudio/flutter-render-metrics?flag=render_metrics&logo=codecov&logoColor=white)](https://app.codecov.io/gh/surfstudio/flutter-render-metrics)
 [![Pub Version](https://img.shields.io/pub/v/render_metrics?logo=dart&logoColor=white)](https://pub.dev/packages/render_metrics)
 [![Pub Likes](https://badgen.net/pub/likes/render_metrics)](https://pub.dev/packages/render_metrics)
 [![Pub popularity](https://badgen.net/pub/popularity/render_metrics)](https://pub.dev/packages/render_metrics/score)
@@ -9,7 +9,7 @@
 
 This package is part of the [SurfGear](https://github.com/surfstudio/SurfGear) toolkit made by [Surf](https://surf.ru/).
 
-[![SurfGear](https://i.ibb.co/wpPb5N5/render-metrics-logo.png)](https://github.com/surfstudio/SurfGear)
+[![SurfGear](https://i.ibb.co/wpPb5N5/render-metrics-logo.png)](https://github.com/surfstudio/flutter-render-metrics)
 
 ## Description
 
@@ -100,14 +100,14 @@ An additional set of special getters can help you calculate the difference betwe
 
 ## Installation
 
-Add Render Metrics to your `pubspec.yaml` file:
+Add `render_metrics` to your `pubspec.yaml` file:
 
 ```yaml
 dependencies:
-  render_metrics: version
+  render_metrics: $currentVersion$
 ```
 
-You can use both `stable` and `dev` versions of the package listed above in the badges bar.
+<p>At this moment, the current version of <code>render_metrics</code> is <a href="https://pub.dev/packages/render_metrics"><img style="vertical-align:middle;" src="https://img.shields.io/pub/v/render_metrics.svg" alt="render_metrics version"></a>.</p>
 
 ## Changelog
 
@@ -115,11 +115,11 @@ All notable changes to this project will be documented in [this file](./CHANGELO
 
 ## Issues
 
-For issues, file directly in the Issues section.
+To report your issues, submit them directly in the [Issues](https://github.com/surfstudio/flutter-render-metrics/issues) section.
 
 ## Contribute
 
-If you would like to contribute to the package (e.g. by improving the documentation, solving a bug or adding a cool new feature), please review our [contribution guide](../../CONTRIBUTING.md) first and send us your pull request.
+If you would like to contribute to the package (e.g. by improving the documentation, fixing a bug or adding a cool new feature), please read our [contribution guide](./CONTRIBUTING.md) first and send us your pull request.
 
 Your PRs are always welcome.
 
