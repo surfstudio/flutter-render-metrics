@@ -86,31 +86,6 @@ class RenderData {
         ')';
   }
 
-  const RenderData({
-    required this.yTop,
-    required this.yBottom,
-    required this.yCenter,
-    required this.xLeft,
-    required this.xRight,
-    required this.xCenter,
-    required this.width,
-    required this.height,
-  });
-
-  @override
-  String toString() {
-    return 'RenderData(\n'
-        '    yTop = $yTop;\n'
-        '    yBottom = $yBottom;\n'
-        '    yCenter = $yCenter;\n'
-        '    xLeft = $xLeft;\n'
-        '    xRight = $xRight;\n'
-        '    xCenter = $xCenter;\n'
-        '    width = $width;\n'
-        '    height = $height;\n'
-        ')';
-  }
-
   /// Returns the difference between
   /// the external and the current instance ofRenderData,
   /// as an instance of the ComparisonDiff class.
