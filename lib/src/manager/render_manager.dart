@@ -14,14 +14,14 @@
 
 import 'package:flutter/rendering.dart';
 
-/// Base class for rendering interaction managers
+/// Base class for rendering interaction managers.
 abstract class RenderManager<T> {
-  /// Handling the RenderObject Add Call
+  /// Handling the RenderObject Add Call.
   void addRenderObject(T id, RenderObject object);
 
-  /// Handling the RenderObject Update Call
+  /// Handling the RenderObject Update Call.
   void updateRenderObject(T id, RenderObject object);
 
-  /// Handling the RenderObject Delete Call
+  /// Handling the RenderObject Delete Call.
   void removeRenderObject(T id);
 }

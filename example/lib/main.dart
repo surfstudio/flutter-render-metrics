@@ -88,14 +88,12 @@ class _MyHomePageState extends State<MyHomePage> {
               RenderMetricsObject(
                 id: _textBlockId,
                 manager: renderManager,
-                // ignore: avoid_annotating_with_dynamic
-                onMount: (dynamic id, box) {
+                onMount: (id, box) {
                   // Method called when creating a RenderObject
                   // id - passed id (In this case, the string from _textBlockId)
                   // box - renderMetricsBox instance from which data is taken
                 },
-                // ignore: avoid_annotating_with_dynamic
-                onUnMount: (dynamic box) {
+                onUnMount: (box) {
                   // Method called when RenderObject is removed from the tree
                   // box - renderMetricsBox instance from which data is taken
                 },
