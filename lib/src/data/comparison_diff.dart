@@ -89,6 +89,21 @@ class ComparisonDiff {
     required this.height,
   });
 
+  const ComparisonDiff({
+    required this.yTop,
+    required this.yBottom,
+    required this.yCenter,
+    required this.xLeft,
+    required this.xRight,
+    required this.xCenter,
+    required this.diffTopToBottom,
+    required this.diffBottomToTop,
+    required this.diffLeftToRight,
+    required this.diffRightToLeft,
+    required this.width,
+    required this.height,
+  });
+
   @override
   String toString() {
     return 'ComparisonDiff(\n'
