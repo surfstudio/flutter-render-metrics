@@ -1,6 +1,6 @@
 # Render Metrics
 
-[![Build Status](https://shields.io/github/workflow/status/surfstudio/flutter-render-metrics/build?logo=github&logoColor=white)](https://github.com/surfstudio/flutter-render-metrics)
+[![Build Status](https://shields.io/github/workflow/status/surfstudio/flutter-render-metrics/Analysis?logo=github&logoColor=white)](https://github.com/surfstudio/flutter-render-metrics)
 [![Coverage Status](https://img.shields.io/codecov/c/github/surfstudio/flutter-render-metrics?flag=render_metrics&logo=codecov&logoColor=white)](https://app.codecov.io/gh/surfstudio/flutter-render-metrics)
 [![Pub Version](https://img.shields.io/pub/v/render_metrics?logo=dart&logoColor=white)](https://pub.dev/packages/render_metrics)
 [![Pub Likes](https://badgen.net/pub/likes/render_metrics)](https://pub.dev/packages/render_metrics)
@@ -9,7 +9,7 @@
 
 This package is part of the [SurfGear](https://github.com/surfstudio/SurfGear) toolkit made by [Surf](https://surf.ru/).
 
-[![SurfGear](https://i.ibb.co/wpPb5N5/render-metrics-logo.png)](https://github.com/surfstudio/flutter-render-metrics)
+[![SurfGear](https://i.ibb.co/gJc4zCG/render-metrics.png)](https://github.com/surfstudio/flutter-render-metrics)
 
 ## Description
 
@@ -84,11 +84,11 @@ ComparisonDiff diff =
 
 All metrics positioning coordinates are global, meaning they are relative to the entire screen coordinate space.
 
-![RenderData](https://i.ibb.co/KbTvkB9/render-data-1.png)
+![RenderData](https://i.ibb.co/CzCWkSB/render-data-1.png)
 
 `RenderData` also provides you an ability to get all widget keypoint XY-coordinates by calling one of special getters.
 
-![RenderData](https://i.ibb.co/xHmtBnH/render-data-2.png)
+![RenderData](https://i.ibb.co/DQzt33H/render-data-2.png)
 
 ### ComparisonDiff
 
@@ -96,7 +96,7 @@ You can get the comparison relative results for each widget keypoint from the `C
 
 An additional set of special getters can help you calculate the difference between two adjacent sides of two different widgets (e.g. right to left, top to bottom, etc.).
 
-![RenderData](https://i.ibb.co/sb5W99K/render-diff.png)
+![RenderData](https://i.ibb.co/SNMPztt/render-diff.png)
 
 ## Installation
 

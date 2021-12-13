@@ -49,20 +49,42 @@ class RenderData {
 
   CoordinatesMetrics get bottomLeft => CoordinatesMetrics(y: yBottom, x: xLeft);
 
-  CoordinatesMetrics get bottomRight =>
-      CoordinatesMetrics(y: yBottom, x: xRight);
+  CoordinatesMetrics get bottomRight => CoordinatesMetrics(y: yBottom, x: xRight);
 
   CoordinatesMetrics get center => CoordinatesMetrics(y: yCenter, x: xCenter);
 
   CoordinatesMetrics get topCenter => CoordinatesMetrics(y: yTop, x: xCenter);
 
-  CoordinatesMetrics get bottomCenter =>
-      CoordinatesMetrics(y: yBottom, x: xCenter);
+  CoordinatesMetrics get bottomCenter => CoordinatesMetrics(y: yBottom, x: xCenter);
 
   CoordinatesMetrics get centerLeft => CoordinatesMetrics(y: yCenter, x: xLeft);
 
-  CoordinatesMetrics get centerRight =>
-      CoordinatesMetrics(y: yCenter, x: xRight);
+  CoordinatesMetrics get centerRight => CoordinatesMetrics(y: yCenter, x: xRight);
+
+  const RenderData({
+    required this.yTop,
+    required this.yBottom,
+    required this.yCenter,
+    required this.xLeft,
+    required this.xRight,
+    required this.xCenter,
+    required this.width,
+    required this.height,
+  });
+
+  @override
+  String toString() {
+    return 'RenderData(\n'
+        '    yTop = $yTop;\n'
+        '    yBottom = $yBottom;\n'
+        '    yCenter = $yCenter;\n'
+        '    xLeft = $xLeft;\n'
+        '    xRight = $xRight;\n'
+        '    xCenter = $xCenter;\n'
+        '    width = $width;\n'
+        '    height = $height;\n'
+        ')';
+  }
 
   const RenderData({
     required this.yTop,
