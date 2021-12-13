@@ -49,17 +49,20 @@ class RenderData {
 
   CoordinatesMetrics get bottomLeft => CoordinatesMetrics(y: yBottom, x: xLeft);
 
-  CoordinatesMetrics get bottomRight => CoordinatesMetrics(y: yBottom, x: xRight);
+  CoordinatesMetrics get bottomRight =>
+      CoordinatesMetrics(y: yBottom, x: xRight);
 
   CoordinatesMetrics get center => CoordinatesMetrics(y: yCenter, x: xCenter);
 
   CoordinatesMetrics get topCenter => CoordinatesMetrics(y: yTop, x: xCenter);
 
-  CoordinatesMetrics get bottomCenter => CoordinatesMetrics(y: yBottom, x: xCenter);
+  CoordinatesMetrics get bottomCenter =>
+      CoordinatesMetrics(y: yBottom, x: xCenter);
 
   CoordinatesMetrics get centerLeft => CoordinatesMetrics(y: yCenter, x: xLeft);
 
-  CoordinatesMetrics get centerRight => CoordinatesMetrics(y: yCenter, x: xRight);
+  CoordinatesMetrics get centerRight =>
+      CoordinatesMetrics(y: yCenter, x: xRight);
 
   const RenderData({
     required this.yTop,
