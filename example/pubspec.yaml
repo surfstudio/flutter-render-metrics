@@ -18,7 +18,3 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  module:
-    androidX: false
-    androidPackage: rendermetrics.example
-    iosBundleIdentifier: rendermetrics.example

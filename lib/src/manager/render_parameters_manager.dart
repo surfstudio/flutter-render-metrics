@@ -12,7 +12,7 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
-import 'package:flutter/rendering.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:render_metrics/src/data/comparison_diff.dart';
 import 'package:render_metrics/src/data/render_data.dart';
 import 'package:render_metrics/src/manager/render_manager.dart';
@@ -22,34 +22,35 @@ import 'package:render_metrics/src/render/render_metrics.dart';
 /// Contains a collection of mounted [RenderMetricsBox]
 /// and provides methods for working with it.
 class RenderParametersManager<T> extends RenderManager<T> {
-  final _renderObjects = <T, RenderMetricsBox>{};
+  @visibleForTesting
+  final renderObjects = <T, RenderMetricsBox>{};
 
   /// Add an instance of [RenderObject] by [id].
   @override
   void addRenderObject(T id, RenderObject renderObject) {
-    _renderObjects[id] = renderObject as RenderMetricsBox;
+    renderObjects[id] = renderObject as RenderMetricsBox;
   }
 
   /// Update an instance of [RenderObject] by [id].
   @override
   void updateRenderObject(T id, RenderObject renderObject) {
-    _renderObjects[id] = renderObject as RenderMetricsBox;
+    renderObjects[id] = renderObject as RenderMetricsBox;
   }
 
   /// Delete an instance of [RenderObject] by [id].
   @override
   void removeRenderObject(T id) {
-    _renderObjects.remove(id);
+    renderObjects.remove(id);
   }
 
   /// Collection with mounted [RenderMetricsBox].
   RenderMetricsBox? operator [](T id) {
-    return _renderObjects[id];
+    return renderObjects[id];
   }
 
   /// Get an instance of [RenderObject] by [id].
   RenderMetricsBox? getRenderObject(T id) {
-    return _renderObjects[id];
+    return renderObjects[id];
   }
 
   /// Get instance of [RenderData] from [RenderObject] by [id].
