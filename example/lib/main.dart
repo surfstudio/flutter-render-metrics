@@ -104,7 +104,8 @@ class _MyHomePageState extends State<MyHomePage> {
                       id: _text1Id,
                       manager: renderManager,
                       child: _TextContainer(
-                        text: 'Diff metrics between the current and the blue square:'
+                        text:
+                            'Diff metrics between the current and the blue square:'
                             '\n\n'
                             // ignore: lines_longer_than_80_chars
                             '${renderManager.getDiffById(_text1Id, _containerPositionedId) ?? ''}',
