@@ -1,6 +1,6 @@
 # Render Metrics
 
-[![Build Status](https://shields.io/github/workflow/status/surfstudio/flutter-render-metrics/Analysis?logo=github&logoColor=white)](https://github.com/surfstudio/flutter-render-metrics)
+[![Build Status](https://shields.io/github/actions/workflow/status/surfstudio/flutter-render-metrics/main.yml?logo=github&logoColor=white)](https://github.com/surfstudio/flutter-render-metrics)
 [![Coverage Status](https://img.shields.io/codecov/c/github/surfstudio/flutter-render-metrics?=render_metrics&logo=codecov&logoColor=white)](https://app.codecov.io/gh/surfstudio/flutter-render-metrics)
 [![Pub Version](https://img.shields.io/pub/v/render_metrics?logo=dart&logoColor=white)](https://pub.dev/packages/render_metrics)
 [![Pub Likes](https://badgen.net/pub/likes/render_metrics)](https://pub.dev/packages/render_metrics)
