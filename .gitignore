@@ -31,7 +31,7 @@
 .pub-cache/
 .pub/
 build/
-.fvm/flutter_sdks
+.fvm/flutter_sdk
 
 # Android related
 **/android/**/gradle-wrapper.jar
