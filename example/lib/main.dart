@@ -12,6 +12,8 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 
+// ignore_for_file: library_private_types_in_public_api
+
 import 'package:flutter/material.dart';
 import 'package:render_metrics/render_metrics.dart';
 
@@ -104,8 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       id: _text1Id,
                       manager: renderManager,
                       child: _TextContainer(
-                        text:
-                            'Diff metrics between the current and the blue square:'
+                        text: 'Diff metrics between the current and the blue square:'
                             '\n\n'
                             // ignore: lines_longer_than_80_chars
                             '${renderManager.getDiffById(_text1Id, _containerPositionedId) ?? ''}',
